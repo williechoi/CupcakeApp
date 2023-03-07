@@ -78,14 +78,10 @@ fun CupcakeAppBar(
 
 @Composable
 fun CupcakeApp(modifier: Modifier = Modifier, viewModel: OrderViewModel = viewModel()) {
-    // TODO: Create NavController
     val navController = rememberNavController()
-
-    // TODO: Get current back stack entry
     val backStackEntry by navController.currentBackStackEntryAsState()
-    // TODO: Get the name of the current screen
     val currentScreen = CupcakeScreen.valueOf(
-        backStackEntry?.destination?.route?:CupcakeScreen.Start.name
+        backStackEntry?.destination?.route ?: CupcakeScreen.Start.name
     )
     Scaffold(topBar = {
         CupcakeAppBar(
